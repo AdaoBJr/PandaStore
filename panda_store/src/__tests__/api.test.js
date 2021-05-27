@@ -1,4 +1,5 @@
 import mockedCategories from '../__mocks__/categories';
+import * as api from '../Service/api';
 
 describe('Check result api', () => {
   it('check create function select Categories api', () => {
@@ -6,6 +7,9 @@ describe('Check result api', () => {
       json: async () => mockedCategories,
     });
 
-    expect(global.fetch).toHaveBeenCalled();
+    return api.getCategories().then((categories) => {
+      expect(global.fetch).toHaveBeenCalled();
+      expect(categories).toEqual(mockedCategories);
+    });
   });
 });
