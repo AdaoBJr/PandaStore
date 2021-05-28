@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import lupa from '../images/lupa.png';
 
 export default class ElementsHome extends Component {
   constructor() {
@@ -10,13 +11,13 @@ export default class ElementsHome extends Component {
     return (
       <div>
         <input
-          placeholder="insert a product"
+          placeholder="insira um produto"
           type="text"
         />
         <button
           type="button"
         >
-          Pesquisar
+          <img src={lupa} alt="pesquisar" width="25px" />
         </button>
       </div>
     );
