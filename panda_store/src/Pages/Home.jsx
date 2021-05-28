@@ -20,7 +20,6 @@ export default class Home extends Component {
     this.setState({
       listCategories: data,
     });
-    console.log(data);
   }
 
   render() {
