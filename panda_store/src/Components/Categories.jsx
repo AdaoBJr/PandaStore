@@ -9,18 +9,19 @@ export default class Categories extends Component {
 
   render() {
     const { categories } = this.props;
-    const { name, id } = categories;
     return (
       <div>
-        {categories.map((categorie) => key={id}
-        <button
-          type="button"
-          value={id}
-        >
-          {name}
-        </button>
+        {categories.map(({ name, id }) => (
+          <button
+            key={id}
+            type="button"
+            value={id}
+          >
+            {name}
+          </button>
+        ))}
       </div>
-    ));
+    );
   }
 }
 
