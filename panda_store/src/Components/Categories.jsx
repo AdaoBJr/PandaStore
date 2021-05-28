@@ -7,17 +7,23 @@ export default class Categories extends Component {
     this.state = {};
   }
 
+  oneWordCategories = (name) => {
+    const singleName = name.split(' ')[0];
+    const noComma = singleName.split(',')[0];
+    return noComma;
+  }
+
   render() {
     const { categories } = this.props;
     return (
-      <div>
+      <div className="categoriesBar">
         {categories.map(({ name, id }) => (
           <button
             key={id}
             type="button"
             value={id}
           >
-            {name}
+            {this.oneWordCategories(name)}
           </button>
         ))}
       </div>
