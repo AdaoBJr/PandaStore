@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import lupa from '../images/lupa.png';
 import cart from '../images/cart.png';
 import ProductsList from './ProductsList';
+import Categories from './Categories';
 
 export default class ElementsHome extends Component {
   constructor() {
@@ -11,7 +12,14 @@ export default class ElementsHome extends Component {
   }
 
   render() {
-    const { products, handleChange, handleClick } = this.props;
+    const {
+      products,
+      categories,
+      handleChange,
+      handleClickInput,
+      handleClickCategory,
+    } = this.props;
+
     return (
       <div className="elementsHome">
         <div className="inputButtons">
@@ -24,7 +32,7 @@ export default class ElementsHome extends Component {
           <button
             className="buttonSearch"
             type="button"
-            onClick={handleClick}
+            onClick={handleClickInput}
           >
             <img src={lupa} alt="pesquisar" className="imgSearch" />
           </button>
@@ -37,6 +45,7 @@ export default class ElementsHome extends Component {
         </div>
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
         <ProductsList products={products} />
+        <Categories categories={categories} handleClickCategory={handleClickCategory} />
       </div>
     );
   }
@@ -44,6 +53,8 @@ export default class ElementsHome extends Component {
 
 ElementsHome.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  categories: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleChange: PropTypes.func.isRequired,
-  handleClick: PropTypes.func.isRequired,
+  handleClickInput: PropTypes.func.isRequired,
+  handleClickCategory: PropTypes.func.isRequired,
 };

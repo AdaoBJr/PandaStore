@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Categories from '../Components/Categories';
 import ElementsHome from '../Components/ElementsHome';
 import * as api from '../service/api';
 
@@ -59,12 +58,10 @@ export default class Home extends Component {
       <div>
         <ElementsHome
           products={products}
-          handleChange={this.handleChangeInput}
-          handleClick={this.handleClickInput}
-        />
-        <Categories
           categories={listCategories}
-          handleClick={this.handleClickCategory}
+          handleChange={this.handleChangeInput}
+          handleClickInput={this.handleClickInput}
+          handleClickCategory={this.handleClickCategory}
         />
       </div>
     );
