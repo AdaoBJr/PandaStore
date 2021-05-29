@@ -37,17 +37,23 @@ a {
 }
 
 .inputSearch {
-  width: 80%;
+  width: 70%;
   height: 35px;
   margin-left: 40px;
   margin-bottom: 10px;
   margin-top: 10px;
   padding: 5px;
   font-size: 1rem;
+  border: 2px solid #f4796b;
+  border-right: none;
 }
 
 .buttonSearch {
   margin-left: 2px;
+  height: 35px;
+  background-color: transparent;
+  border: 2px solid #f4796b;
+  border-left:none;
 }
 
 .categoriesBar {
