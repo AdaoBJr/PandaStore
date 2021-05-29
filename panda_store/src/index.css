@@ -36,17 +36,46 @@ a {
   align-items: center;
 }
 
+.inputButtons .cartSearch {
+  width: 55px;
+  height: 60px;
+  background-color: #c4c4c431;
+  border-radius: 40px;
+  box-shadow: 2px 2px 2px 1px #c4c4c4;
+  outline: none;
+}
+
+.inputButtons .cartSearch:hover {
+  width: 75px;
+  height: 65px;
+  transition: all 1.0s ease;
+}
+
 .inputButtons .imgCart {
   width: 45px;
+  cursor: pointer;
+  outline: none;
+}
+
+.inputButtons .imgCart:hover {
+  width: 65px;
+  border-radius: 40px;
+  transition: all 1.0s ease;
+  outline: none;
 }
 
 .inputButtons .imgSearch {
   width: 25px;
 }
 
+.inputButtons .imgSearch:hover {
+  width: 45px;
+  transition: all 1.0s ease;
+}
+
 .inputSearch {
   width: 70%;
-  height: 35px;
+  height: 55px;
   margin-left: 40px;
   margin-bottom: 10px;
   margin-top: 10px;
@@ -59,7 +88,8 @@ a {
 }
 
 .buttonSearch {
-  height: 35px;
+  height: 55px;
+  width: 50px;
   background-color: transparent;
   border: 2px solid #f4796b;
   border-radius: 0 40px 40px 0;
@@ -67,11 +97,14 @@ a {
   cursor: pointer;
 }
 
-.buttonSearch:active {
-  height: 35px;
-  background-color: #f4796b;
-  border-radius: 40px 40px 40px 0;
-  border-left:none;
+.buttonSearch:hover {
+  height: 55px;
+  width: 60px;
+  background-color: #c4c4c431;
+  border-radius: 0 40px 40px 0;
+  border:2px solid #f4796b;
+  border-left: none;
+  transition: all 0.5s ease;
 }
 
 .cartSearch {
