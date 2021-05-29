@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import lupa from '../images/lupa.png';
+import cart from '../images/cart.png';
 import ProductsList from './ProductsList';
 
 export default class ElementsHome extends Component {
@@ -25,7 +26,13 @@ export default class ElementsHome extends Component {
             className="buttonSearch"
             type="button"
           >
-            <img src={lupa} alt="pesquisar" width="25px" />
+            <img src={lupa} alt="pesquisar" className="imgSearch" />
+          </button>
+          <button
+            className="cartSearch"
+            type="button"
+          >
+            <img src={cart} alt="carrinho de compras" className="imgCart" />
           </button>
         </div>
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
