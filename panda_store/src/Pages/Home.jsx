@@ -8,6 +8,8 @@ export default class Home extends Component {
     super();
     this.state = {
       listCategories: [],
+      products: [],
+      search: '',
     };
   }
 
@@ -22,12 +24,31 @@ export default class Home extends Component {
     });
   }
 
+  getProducts = async ({ categoryId, search }) => {
+    const displayProduct = await api.getProductBySearchBar(categoryId, search);
+    return displayProduct;
+  }
+
+  handleClickCategory = async ({ target: { value } }) => {
+    const { search } = this.state;
+    console.log(value);
+    const products = await this.getProducts(value, search);
+    this.setState({
+      products: products.results,
+    });
+  }
+
   render() {
-    const { listCategories } = this.state;
+    const { listCategories, products } = this.state;
     return (
       <div>
-        <ElementsHome />
-        <Categories categories={listCategories} />
+        <ElementsHome
+          products={products}
+        />
+        <Categories
+          categories={listCategories}
+          handleClick={this.handleClickCategory}
+        />
       </div>
     );
   }

@@ -14,7 +14,7 @@ export default class Categories extends Component {
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, handleClick } = this.props;
     return (
       <div className="categoriesBar">
         <div className="categories">
@@ -23,6 +23,7 @@ export default class Categories extends Component {
               key={id}
               type="button"
               value={id}
+              onClick={handleClick}
             >
               {this.oneWordCategories(name)}
             </button>
@@ -35,4 +36,5 @@ export default class Categories extends Component {
 
 Categories.propTypes = {
   categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
