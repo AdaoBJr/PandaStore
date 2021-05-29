@@ -11,7 +11,7 @@ export default class ElementsHome extends Component {
     return (
       <div>
         <input
-          placeholder="insira um produto"
+          placeholder="Insira um produto"
           type="text"
         />
         <button
@@ -19,6 +19,7 @@ export default class ElementsHome extends Component {
         >
           <img src={lupa} alt="pesquisar" width="25px" />
         </button>
+        <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
       </div>
     );
   }

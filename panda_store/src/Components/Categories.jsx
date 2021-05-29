@@ -17,15 +17,17 @@ export default class Categories extends Component {
     const { categories } = this.props;
     return (
       <div className="categoriesBar">
-        {categories.map(({ name, id }) => (
-          <button
-            key={id}
-            type="button"
-            value={id}
-          >
-            {this.oneWordCategories(name)}
-          </button>
-        ))}
+        <div className="categories">
+          {categories.map(({ name, id }) => (
+            <button
+              key={id}
+              type="button"
+              value={id}
+            >
+              {this.oneWordCategories(name)}
+            </button>
+          ))}
+        </div>
       </div>
     );
   }

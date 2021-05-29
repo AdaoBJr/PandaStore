@@ -26,7 +26,6 @@ export default class Home extends Component {
     const { listCategories } = this.state;
     return (
       <div>
-        <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
         <ElementsHome />
         <Categories categories={listCategories} />
       </div>
