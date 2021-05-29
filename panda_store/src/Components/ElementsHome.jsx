@@ -26,13 +26,13 @@ export default class ElementsHome extends Component {
             className="buttonSearch"
             type="button"
           >
-            <img src={lupa} alt="pesquisar" />
+            <img src={lupa} alt="pesquisar" className="imgSearch" />
           </button>
           <button
             className="cartSearch"
             type="button"
           >
-            <img src={cart} alt="carrinho de compras" />
+            <img src={cart} alt="carrinho de compras" className="imgCart" />
           </button>
         </div>
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>

@@ -36,7 +36,11 @@ a {
   align-items: center;
 }
 
-.inputButtons img {
+.inputButtons .imgCart {
+  width: 45px;
+}
+
+.inputButtons .imgSearch {
   width: 25px;
 }
 
