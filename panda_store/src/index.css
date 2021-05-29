@@ -36,24 +36,45 @@ a {
   align-items: center;
 }
 
+.inputButtons img {
+  width: 25px;
+}
+
 .inputSearch {
   width: 70%;
   height: 35px;
   margin-left: 40px;
   margin-bottom: 10px;
   margin-top: 10px;
-  padding: 5px;
+  padding: 5px 15px 5px 15px ;
   font-size: 1rem;
   border: 2px solid #f4796b;
+  border-radius: 40px 0 0 40px;
   border-right: none;
+  outline: none;
 }
 
 .buttonSearch {
-  margin-left: 2px;
   height: 35px;
   background-color: transparent;
   border: 2px solid #f4796b;
+  border-radius: 0 40px 40px 0;
   border-left:none;
+  cursor: pointer;
+}
+
+.buttonSearch:active {
+  height: 35px;
+  background-color: #f4796b;
+  border-radius: 40px 40px 40px 0;
+  border-left:none;
+}
+
+.cartSearch {
+  height: 45px;
+  margin-left: 5px;
+  background-color: transparent;
+  border:none;
 }
 
 .categoriesBar {
