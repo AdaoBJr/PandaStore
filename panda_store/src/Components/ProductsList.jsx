@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ProductCard from './ProductCard';
 
 export default class ProductsList extends Component {
   constructor() {
@@ -11,7 +12,7 @@ export default class ProductsList extends Component {
     const { products } = this.props;
     return (
       products.map((product) => (
-        <div key={product.id}>{product.title}</div>
+        <ProductCard key={product.id} product={product} />
       )));
   }
 }

@@ -20,11 +20,11 @@ export default class ElementsHome extends Component {
             placeholder="Insira um produto"
             type="text"
             onChange={handleChange}
-            onClick={handleClick}
           />
           <button
             className="buttonSearch"
             type="button"
+            onClick={handleClick}
           >
             <img src={lupa} alt="pesquisar" className="imgSearch" />
           </button>
