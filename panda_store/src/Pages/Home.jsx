@@ -38,12 +38,29 @@ export default class Home extends Component {
     });
   }
 
+  handleChangeInput = ({ target: { value } }) => {
+    this.setState({
+      query: value,
+    });
+  }
+
+  handleClickInput = async () => {
+    const { query } = this.state;
+    const categoryId = '';
+    const searchByCategories = await this.getProducts({ categoryId, query });
+    this.setState({
+      products: searchByCategories.results,
+    });
+  }
+
   render() {
     const { listCategories, products } = this.state;
     return (
       <div>
         <ElementsHome
           products={products}
+          handleChange={this.handleChangeInput}
+          handleClick={this.handleClickInput}
         />
         <Categories
           categories={listCategories}
