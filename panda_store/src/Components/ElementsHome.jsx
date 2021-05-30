@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import lupa from '../images/lupa.png';
-import cart from '../images/cart.png';
+import imgCart from '../images/cart.png';
 import ProductsList from './ProductsList';
 import Categories from './Categories';
 
 export default class ElementsHome extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = { cart: [] };
   }
 
   render() {
@@ -19,6 +19,8 @@ export default class ElementsHome extends Component {
       handleClickInput,
       handleClickCategory,
     } = this.props;
+
+    const { cart } = this.state;
 
     return (
       <div className="elementsHome">
@@ -36,12 +38,15 @@ export default class ElementsHome extends Component {
           >
             <img src={lupa} alt="pesquisar" className="imgSearch" />
           </button>
-          <button
-            className="cartSearch"
-            type="button"
-          >
-            <img src={cart} alt="carrinho de compras" className="imgCart" />
-          </button>
+          <div className="qtdAndCart">
+            <button
+              className="cartSearch"
+              type="button"
+            >
+              <img src={imgCart} alt="carrinho de compras" className="imgCart" />
+            </button>
+            <p className={(cart.length === 0) ? 'qtdCart' : ''}>1</p>
+          </div>
         </div>
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
         <div className="Cards">

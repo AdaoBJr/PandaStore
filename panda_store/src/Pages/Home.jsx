@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ElementsHome from '../Components/ElementsHome';
 import * as api from '../service/api';
+import * as func from '../service/globalFunctions';
 
 export default class Home extends Component {
   constructor() {
@@ -29,13 +30,19 @@ export default class Home extends Component {
   }
 
   handleClickCategory = async ({ target: { value } }) => {
-    const { query } = this.state;
-    const categoryId = value;
-    const searchByCategories = await this.getProducts({ categoryId, query });
+    const handleClick = await func.handleClickCategory(value);
     this.setState({
-      products: searchByCategories.results,
+      products: handleClick.results,
     });
   }
+  // handleClickCategory = async ({ target: { value } }) => {
+  //   const { query } = this.state;
+  //   const categoryId = value;
+  //   const searchByCategories = await this.getProducts({ categoryId, query });
+  //   this.setState({
+  //     products: searchByCategories.results,
+  //   });
+  // }
 
   handleChangeInput = ({ target: { value } }) => {
     this.setState({
