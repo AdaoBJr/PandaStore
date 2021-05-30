@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import lupa from '../images/lupa.png';
 import imgCart from '../images/cart.png';
@@ -43,7 +44,14 @@ export default class ElementsHome extends Component {
               className="cartSearch"
               type="button"
             >
-              <img src={imgCart} alt="carrinho de compras" className="imgCart" />
+              <Link
+                to={{
+                  pathname: '/cart',
+                  state: { cart },
+                }}
+              >
+                <img src={imgCart} alt="carrinho de compras" className="imgCart" />
+              </Link>
             </button>
             <p className={(cart.length === 0) ? 'qtdCart' : ''}>{cart.length}</p>
           </div>

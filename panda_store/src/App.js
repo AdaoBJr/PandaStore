@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home';
 import ProductDetails from './Pages/ProductDetails';
+import Cart from './Pages/Cart';
 
 import pandaHeader from './images/pandaHeader.png';
 
@@ -17,6 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/details/:id" component={ProductDetails} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </Router>
     </div>
