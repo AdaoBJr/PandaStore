@@ -22,13 +22,11 @@ export default class ProductDetails extends Component {
         <br />
         <h4>Mais Informações:</h4>
         <br />
-        <p>
-          {attributes.map((attribute) => (
-            <div key={attribute.name}>
-              <p className="uppercase">{`${attribute.name}: ${attribute.value_name}` }</p>
-            </div>
-          ))}
-        </p>
+        {attributes.map((attribute) => (
+          <div key={attribute.name}>
+            <p className="uppercase">{`${attribute.name}: ${attribute.value_name}` }</p>
+          </div>
+        ))}
       </div>
     );
   }
