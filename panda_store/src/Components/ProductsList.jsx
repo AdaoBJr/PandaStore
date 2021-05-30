@@ -19,7 +19,11 @@ export default class ProductsList extends Component {
             <button
               type="button"
             >
-              <Link to={`/details/${product.id}`}>
+              <Link to={{
+                pathname: `/details/${product.id}`,
+                state: { product },
+              }}
+              >
                 Mais Detalhes
               </Link>
             </button>
