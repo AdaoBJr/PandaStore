@@ -11,10 +11,10 @@ export default class ProductCard extends Component {
     const { product } = this.props;
     const { title, thumbnail, price } = product;
     return (
-      <div>
-        <h2>{title}</h2>
+      <div className="item">
+        <h4>{title}</h4>
         <img src={thumbnail} alt={title} />
-        <h4>{price}</h4>
+        <h4>{`R$ ${price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}` }</h4>
       </div>
     );
   }

@@ -12,10 +12,10 @@ export default class ProductsList extends Component {
   render() {
     const { products } = this.props;
     return (
-      <div>
+      <div className="items">
         {products.map((product) => (
-          <div>
-            <ProductCard key={product.id} product={product} />
+          <div key={product.id}>
+            <ProductCard product={product} />
             <button
               type="button"
             >
