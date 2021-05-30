@@ -8,7 +8,7 @@ import Categories from './Categories';
 export default class ElementsHome extends Component {
   constructor() {
     super();
-    this.state = { cart: [] };
+    this.state = {};
   }
 
   render() {
@@ -19,9 +19,8 @@ export default class ElementsHome extends Component {
       handleClickInput,
       handleClickCategory,
       handleAddCart,
+      cart,
     } = this.props;
-
-    const { cart } = this.state;
 
     return (
       <div className="elementsHome">
@@ -46,7 +45,7 @@ export default class ElementsHome extends Component {
             >
               <img src={imgCart} alt="carrinho de compras" className="imgCart" />
             </button>
-            <p className={(cart.length === 0) ? 'qtdCart' : ''}>1</p>
+            <p className={(cart.length === 0) ? 'qtdCart' : ''}>{cart.length}</p>
           </div>
         </div>
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
@@ -65,6 +64,7 @@ export default class ElementsHome extends Component {
 ElementsHome.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
   categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+  cart: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleChange: PropTypes.func.isRequired,
   handleClickInput: PropTypes.func.isRequired,
   handleClickCategory: PropTypes.func.isRequired,
