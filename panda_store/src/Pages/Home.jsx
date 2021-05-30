@@ -53,11 +53,43 @@ export default class Home extends Component {
     });
   }
 
+  // addCart = (product) => {
+  //   const { cart } = this.state;
+  //   this.setState({
+  //     cart: [...cart, product],
+  //   });
+  // }
+
   addCart = (product) => {
     const { cart } = this.state;
-    this.setState({
-      cart: [...cart, product],
-    });
+    const {
+      id, title, thumbnail, price,
+    } = product;
+    if (!cart.length) {
+      const productCart = [{
+        id, title, thumbnail, price, count: 1,
+      }];
+      this.setState({
+        cart: productCart,
+      });
+    } else {
+      let productCart = cart;
+      const findProduct = productCart.find((item) => item.id === product.id);
+      if (findProduct) {
+        const key = productCart.indexOf(findProduct);
+        productCart[key].count += 1;
+        this.setState({
+          cart: productCart,
+        });
+      } else {
+        productCart = [...productCart, {
+          id, title, thumbnail, price, count: 1,
+        }];
+        this.setState({
+          cart: productCart,
+        });
+      }
+    }
   }
 
   render() {
