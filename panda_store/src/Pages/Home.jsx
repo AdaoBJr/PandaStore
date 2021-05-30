@@ -10,6 +10,7 @@ export default class Home extends Component {
       listCategories: [],
       products: [],
       query: '',
+      cart: [],
     };
   }
 
@@ -59,6 +60,13 @@ export default class Home extends Component {
     });
   }
 
+  addCart = (product) => {
+    const { cart } = this.state;
+    this.setState({
+      cart: [...cart, product],
+    });
+  }
+
   render() {
     const { listCategories, products } = this.state;
     return (
@@ -69,6 +77,7 @@ export default class Home extends Component {
           handleChange={this.handleChangeInput}
           handleClickInput={this.handleClickInput}
           handleClickCategory={this.handleClickCategory}
+          handleAddCart={this.addCart}
         />
       </div>
     );

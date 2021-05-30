@@ -10,7 +10,7 @@ export default class ProductsList extends Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, handleAddCart } = this.props;
     return (
       <div className="items">
         {products.map((product) => (
@@ -31,6 +31,7 @@ export default class ProductsList extends Component {
             <button
               type="button"
               className="buttonCart"
+              onClick={() => handleAddCart(product)}
             >
               Adicionar
             </button>
@@ -42,4 +43,5 @@ export default class ProductsList extends Component {
 }
 ProductsList.propTypes = {
   products: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleAddCart: PropTypes.func.isRequired,
 };
