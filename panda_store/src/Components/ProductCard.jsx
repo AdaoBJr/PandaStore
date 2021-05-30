@@ -12,9 +12,9 @@ export default class ProductCard extends Component {
     const { title, thumbnail, price } = product;
     return (
       <div className="item">
-        <h4>{title}</h4>
+        <h4 className="title">{title}</h4>
         <img src={thumbnail} alt={title} />
-        <h4>{`R$ ${price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}` }</h4>
+        <h4 className="price">{`R$ ${price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}` }</h4>
       </div>
     );
   }

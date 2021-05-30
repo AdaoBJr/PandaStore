@@ -181,13 +181,24 @@ a {
 .item {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
   width: 200px;
+  height: 350px;
   border: 2px solid tomato;
 }
 
+/* .item .title {
+  margin-top: 2%;
+} */
+
 .item img {
+  margin-top: auto;
+  margin-bottom: auto;
   width: 80px;
-  margin: 20px 0 20px 0;
+}
+
+.item .price {
+  margin-left: auto;
+  margin-right: auto;
 }
