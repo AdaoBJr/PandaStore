@@ -18,6 +18,7 @@ export default class ElementsHome extends Component {
       handleChange,
       handleClickInput,
       handleClickCategory,
+      handleAddCart,
     } = this.props;
 
     return (
@@ -46,7 +47,10 @@ export default class ElementsHome extends Component {
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
         <div className="Cards">
           <Categories categories={categories} handleClickCategory={handleClickCategory} />
-          <ProductsList products={products} />
+          <ProductsList
+            products={products}
+            handleAddCart={handleAddCart}
+          />
         </div>
       </div>
     );
@@ -59,4 +63,5 @@ ElementsHome.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleClickInput: PropTypes.func.isRequired,
   handleClickCategory: PropTypes.func.isRequired,
+  handleAddCart: PropTypes.func.isRequired,
 };
