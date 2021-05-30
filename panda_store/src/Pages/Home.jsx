@@ -61,12 +61,13 @@ export default class Home extends Component {
   }
 
   render() {
-    const { listCategories, products } = this.state;
+    const { listCategories, products, cart } = this.state;
     return (
       <div>
         <ElementsHome
           products={products}
           categories={listCategories}
+          cart={cart}
           handleChange={this.handleChangeInput}
           handleClickInput={this.handleClickInput}
           handleClickCategory={this.handleClickCategory}
