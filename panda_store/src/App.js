@@ -1,6 +1,8 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home';
+import ProductDetails from './Pages/ProductDetails';
 
 import pandaHeader from './images/pandaHeader.png';
 
@@ -11,9 +13,12 @@ function App() {
         <img src={pandaHeader} alt="urso panda" width="65px" />
         <h1>PANDA STORE</h1>
       </header>
-      <div>
-        <Home />
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/details/:id" component={ProductDetails} />
+        </Switch>
+      </Router>
     </div>
   );
 }
