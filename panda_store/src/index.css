@@ -37,33 +37,6 @@ a {
   align-items: center;
 }
 
-.inputButtons .cartSearch {
-  width: 55px;
-  height: 60px;
-  background-color: #c4c4c431;
-  border-radius: 40px;
-  box-shadow: 2px 2px 2px 1px #c4c4c4;
-  outline: none;
-}
-
-.inputButtons .cartSearch:hover {
-  width: 75px;
-  height: 65px;
-  transition: all 1.0s ease;
-}
-
-.inputButtons .imgCart {
-  width: 45px;
-  cursor: pointer;
-  outline: none;
-}
-
-.inputButtons .imgCart:hover {
-  width: 65px;
-  border-radius: 40px;
-  transition: all 1.0s ease;
-  outline: none;
-}
 
 .inputButtons .imgSearch {
   width: 25px;
@@ -108,11 +81,47 @@ a {
   transition: all 0.5s ease;
 }
 
-.cartSearch {
+.inputButtons .cartSearch {
   height: 45px;
   margin-left: 5px;
-  background-color: transparent;
   border:none;
+}
+
+.inputButtons .cartSearch {
+  width: 55px;
+  height: 60px;
+  background-color: #c4c4c431;
+  border-radius: 40px;
+  box-shadow: 2px 2px 2px 1px #c4c4c4;
+  outline: none;
+}
+
+.inputButtons .cartSearch:hover {
+  width: 75px;
+  height: 65px;
+  transition: all 1.0s ease;
+}
+
+.inputButtons .imgCart {
+  width: 45px;
+  cursor: pointer;
+  outline: none;
+}
+
+.inputButtons .imgCart:hover {
+  width: 65px;
+  border-radius: 40px;
+  transition: all 1.0s ease;
+  outline: none;
+}
+
+.qtdAndCart {
+  display: flex;
+  align-items: flex-start;
+}
+
+.qtdAndCart .qtdCart {
+  display: none;
 }
 
 .categoriesBar {
@@ -271,7 +280,8 @@ a {
 .item img {
   margin-top: auto;
   margin-bottom: auto;
-  width: 80px;
+  width: 120px;
+  border-radius: 40px;
 }
 
 .item .price {

@@ -39,18 +39,22 @@ export default class ElementsHome extends Component {
           >
             <img src={lupa} alt="pesquisar" className="imgSearch" />
           </button>
-          <button
-            className="cartSearch"
-            type="button"
-          >
-            <Link to={{
-              pathname: '/cart',
-              state: { cart },
-            }}
+          <div className="qtdAndCart">
+            <button
+              className="cartSearch"
+              type="button"
             >
-              <img src={imgCart} alt="carrinho de compras" className="imgCart" />
-            </Link>
-          </button>
+              <Link
+                to={{
+                  pathname: '/cart',
+                  state: { cart },
+                }}
+              >
+                <img src={imgCart} alt="carrinho de compras" className="imgCart" />
+              </Link>
+            </button>
+            <p className={(cart.length === 0) ? 'qtdCart' : ''}>{cart.length}</p>
+          </div>
         </div>
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
         <div className="Cards">
