@@ -157,12 +157,12 @@ a {
   top: 0;
   left: 0;
   z-index:-1;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .categories button:hover {
   color:white;
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 
 .categories button:hover:before {
@@ -178,6 +178,71 @@ a {
   flex-wrap: wrap;
 }
 
+.items .buttonDetails {
+  margin: 1px 10px 10px 25px;
+  padding: 5px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.items .buttonDetails:before {
+  content: '';
+  position: absolute;
+  border-radius: 40px;
+  background-color: #6b9bf4;
+  width: 0;
+  height: 101%;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  transition: all .5s ease;
+}
+
+.items .buttonDetails:hover:before {
+  width: 101%;
+}
+
+.items .buttonDetails a:hover {
+  color:white;
+  transition: all 0.5s ease;
+}
+
+.items .buttonCart {
+  padding: 5px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.items .buttonCart:before {
+  content: '';
+  position: absolute;
+  border-radius: 40px;
+  background-color: #269a80;
+  width: 0;
+  height: 101%;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  transition: all .5s ease;
+}
+
+.items .buttonCart:hover:before {
+  width: 101%;
+}
+
+.items .buttonCart:hover {
+  color:white;
+  transition: all 0.5s ease;
+}
+
 .item {
   display: flex;
   flex-direction: column;
@@ -186,11 +251,10 @@ a {
   width: 200px;
   height: 350px;
   border: 2px solid tomato;
+  box-shadow: 1px 2px 8px 2px tomato;
+  border-radius: 40px;
+  margin: 0 5px 0 5px;
 }
-
-/* .item .title {
-  margin-top: 2%;
-} */
 
 .item img {
   margin-top: auto;

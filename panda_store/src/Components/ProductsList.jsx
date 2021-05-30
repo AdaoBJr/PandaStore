@@ -18,6 +18,7 @@ export default class ProductsList extends Component {
             <ProductCard product={product} />
             <button
               type="button"
+              className="buttonDetails"
             >
               <Link to={{
                 pathname: `/details/${product.id}`,
@@ -26,6 +27,12 @@ export default class ProductsList extends Component {
               >
                 Mais Detalhes
               </Link>
+            </button>
+            <button
+              type="button"
+              className="buttonCart"
+            >
+              Adicionar
             </button>
           </div>
         ))}
