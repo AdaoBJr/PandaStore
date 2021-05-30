@@ -17,7 +17,14 @@ export default class ProductDetails extends Component {
         <p>{title}</p>
         <p>{thumbnail}</p>
         <p>{price}</p>
-        <p>{attributes}</p>
+        <p>
+          {attributes.map((attribute) => (
+            <div key={attribute.name}>
+              <p>{attribute.name}</p>
+              <p>{attribute.value_name}</p>
+            </div>
+          ))}
+        </p>
       </div>
     );
   }
