@@ -167,3 +167,7 @@ a {
 .categories button:hover:before {
   width: 101%;
 }
+
+.Cards {
+  display: flex;
+}

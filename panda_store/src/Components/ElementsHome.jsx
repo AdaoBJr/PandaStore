@@ -44,8 +44,10 @@ export default class ElementsHome extends Component {
           </button>
         </div>
         <h4>Digite algum termo de pesquisa ou escolha uma categoria.</h4>
-        <ProductsList products={products} />
-        <Categories categories={categories} handleClickCategory={handleClickCategory} />
+        <div className="Cards">
+          <Categories categories={categories} handleClickCategory={handleClickCategory} />
+          <ProductsList products={products} />
+        </div>
       </div>
     );
   }
