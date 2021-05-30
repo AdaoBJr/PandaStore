@@ -14,14 +14,18 @@ export default class ProductDetails extends Component {
     } = product;
     return (
       <div>
+        <h4>Detalhes do Produto</h4>
+        <br />
         <p>{title}</p>
-        <p>{thumbnail}</p>
-        <p>{price}</p>
+        <img src={thumbnail} alt={title} />
+        <p>{`R$ ${price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}` }</p>
+        <br />
+        <h4>Mais Informações:</h4>
+        <br />
         <p>
           {attributes.map((attribute) => (
             <div key={attribute.name}>
-              <p>{attribute.name}</p>
-              <p>{attribute.value_name}</p>
+              <p className="uppercase">{`${attribute.name}: ${attribute.value_name}` }</p>
             </div>
           ))}
         </p>
