@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 export default class Cart extends Component {
   constructor() {
@@ -12,24 +13,62 @@ export default class Cart extends Component {
     const haveCart = cart.length;
     if (!haveCart) {
       return (
-        <div>
+        <div className="cartEmpty">
           <h3>Carrinho de Compras</h3>
           <h5>Seu carrinho está vazio.</h5>
+          <div className="areaButtons">
+            <button
+              type="button"
+              className="buttonCheckout"
+            >
+              <Link to="/">
+                Finalizar Compra
+              </Link>
+            </button>
+            <button
+              type="button"
+              className="buttonHome"
+            >
+              <Link to="/">
+                Home
+              </Link>
+            </button>
+          </div>
         </div>
       );
     }
     return (
-      <div>
-        {cart.map(({
-          id, title, price, thumbnail, count,
-        }) => (
-          <div key={id}>
-            <h4>{title}</h4>
-            <img src={thumbnail} alt={title} width="80px" />
-            <h4>{`Quantidade: ${count}`}</h4>
-            <h4>{price}</h4>
-          </div>
-        ))}
+      <div className="cartFull">
+        <div>
+          {cart.map(({
+            id, title, price, thumbnail, count,
+          }) => (
+            <div key={id}>
+              <h4>{title}</h4>
+              <img src={thumbnail} alt={title} width="80px" />
+              <h4>{`Quantidade: ${count}`}</h4>
+              <h4>{price}</h4>
+            </div>
+          ))}
+        </div>
+        <div className="areaButtons">
+          <button
+            type="button"
+            className="buttonCheckout"
+          >
+            <Link to="/">
+              Finalizar Compra
+            </Link>
+          </button>
+          <button
+            type="button"
+            className="buttonHome"
+          >
+            <Link to="/">
+              Home
+            </Link>
+          </button>
+        </div>
       </div>
     );
   }

@@ -403,3 +403,65 @@ a {
   color:white;
   transition: all 0.5s ease;
 }
+
+.areaButtons  .buttonCheckout {
+  padding: 5px 15px 5px 15px;
+  margin-left: 5px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.areaButtons .buttonCheckout:before {
+  content: '';
+  position: absolute;
+  border-radius: 40px;
+  background-color: #269a80;
+  width: 0;
+  height: 101%;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  transition: all .5s ease;
+}
+
+.areaButtons .buttonCheckout:hover:before {
+  width: 101%;
+}
+
+.areaButtons .buttonCheckout a:hover {
+  color:white;
+  transition: all 0.5s ease;
+}
+
+.cartEmpty {
+  display: flex;
+  flex-direction: column;
+  height: 450px;
+  align-items: center;
+  background-color: #C4C4C422;
+  margin: 10px 20px 2px 20px;
+  padding: 10px 10px;
+  box-shadow: 1px 1px 5px 2px black;
+}
+
+.cartEmpty .areaButtons {
+  margin-top: 30%;
+}
+
+.cartFull {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #C4C4C422;
+  margin: 10px 20px 2px 20px;
+  padding: 10px 10px;
+  box-shadow: 1px 1px 5px 2px black;
+}
+
+.cartFull .areaButtons {
+  margin-top: 5%;
+}
