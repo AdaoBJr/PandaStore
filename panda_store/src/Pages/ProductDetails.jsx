@@ -18,6 +18,7 @@ export default class ProductDetails extends Component {
     this.setState({
       cart: productCart,
     });
+    localStorage.setItem('LScart', JSON.stringify(productCart));
   }
 
   render() {

@@ -8,6 +8,11 @@ export default class Checkout extends Component {
     this.state = { };
   }
 
+  buyCompleted = () => {
+    const updatedCart = [];
+    localStorage.setItem('LScart', JSON.stringify(updatedCart));
+  }
+
   render() {
     const { location: { state } } = this.props;
     const { shoppingCart, totalSum } = state;
@@ -68,7 +73,10 @@ export default class Checkout extends Component {
             type="button"
             className="buttonCheckout"
           >
-            <Link to="/">
+            <Link
+              to="/"
+              onClick={this.buyCompleted}
+            >
               Comprar
             </Link>
           </button>

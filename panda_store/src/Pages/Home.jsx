@@ -16,6 +16,17 @@ export default class Home extends Component {
 
   componentDidMount() {
     this.categories();
+    this.restoreFromLocalStorage();
+  }
+
+  restoreFromLocalStorage = () => {
+    let localStorageCart = localStorage.getItem('LScart');
+    if (localStorageCart) {
+      localStorageCart = JSON.parse(localStorageCart);
+      this.setState({
+        cart: localStorageCart,
+      });
+    }
   }
 
   categories = async () => {
@@ -60,6 +71,7 @@ export default class Home extends Component {
     this.setState({
       cart: productCart,
     });
+    localStorage.setItem('LScart', JSON.stringify(productCart));
   }
 
   render() {

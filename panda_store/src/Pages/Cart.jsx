@@ -15,10 +15,21 @@ export default class Cart extends Component {
 
   componentDidMount() {
     this.totalSumProducts();
+    this.restoreFromLocalStorage();
   }
 
   componentDidUpdate() {
     this.totalSumProducts();
+  }
+
+  restoreFromLocalStorage = () => {
+    let localStorageCart = localStorage.getItem('LScart');
+    if (localStorageCart) {
+      localStorageCart = JSON.parse(localStorageCart);
+      this.setState({
+        shoppingCart: localStorageCart,
+      });
+    }
   }
 
   totalSumProducts = () => {
@@ -44,6 +55,7 @@ export default class Cart extends Component {
       shoppingCart: productCart,
       updateSum: true,
     });
+    localStorage.setItem('LScart', JSON.stringify(productCart));
   }
 
   decreaseQuantity = (id) => {
@@ -59,6 +71,7 @@ export default class Cart extends Component {
         shoppingCart: productCart,
         updateSum: true,
       });
+      localStorage.setItem('LScart', JSON.stringify(productCart));
     }
   }
 
@@ -70,6 +83,7 @@ export default class Cart extends Component {
       shoppingCart: updatedCart,
       updateSum: true,
     });
+    localStorage.setItem('LScart', JSON.stringify(updatedCart));
   }
 
   clearProducts = () => {
@@ -78,6 +92,7 @@ export default class Cart extends Component {
       shoppingCart: updatedCart,
       updateSum: true,
     });
+    localStorage.setItem('LScart', JSON.stringify(updatedCart));
   }
 
   render() {
