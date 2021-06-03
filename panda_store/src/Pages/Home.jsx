@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ElementsHome from '../Components/ElementsHome';
 import * as api from '../service/api';
-import AddToCart from '../service/globalFunctions';
+import * as func from '../service/globalFunctions';
 
 export default class Home extends Component {
   constructor() {
@@ -56,7 +56,7 @@ export default class Home extends Component {
 
   addCart = (product) => {
     const { cart } = this.state;
-    const productCart = AddToCart(product, cart);
+    const productCart = func.addCartRefact(product, cart);
     this.setState({
       cart: productCart,
     });
