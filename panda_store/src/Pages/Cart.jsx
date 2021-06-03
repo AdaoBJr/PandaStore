@@ -39,15 +39,21 @@ export default class Cart extends Component {
     }
     return (
       <div className="cartFull">
-        <div>
+        <div className="itemsCart">
           {cart.map(({
             id, title, price, thumbnail, count,
           }) => (
-            <div key={id}>
-              <h4>{title}</h4>
+            <div key={id} className="itemCart">
+              <h4 className="title">{title}</h4>
               <img src={thumbnail} alt={title} width="80px" />
-              <h4>{`Quantidade: ${count}`}</h4>
-              <h4>{price}</h4>
+              <h4>
+                {`Qtide: ${count
+                  .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
+              </h4>
+              <h4 className="price">
+                {`Preço: R$ ${price
+                  .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
+              </h4>
             </div>
           ))}
         </div>
