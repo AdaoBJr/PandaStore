@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ElementsHome from '../Components/ElementsHome';
 import * as api from '../service/api';
-import * as func from '../service/globalFunctions';
+import AddToCart from '../service/globalFunctions';
 
 export default class Home extends Component {
   constructor() {
@@ -31,19 +31,13 @@ export default class Home extends Component {
   }
 
   handleClickCategory = async ({ target: { value } }) => {
-    const handleClick = await func.handleClickCategory(value);
+    const { query } = this.state;
+    const categoryId = value;
+    const searchByCategories = await this.getProducts({ categoryId, query });
     this.setState({
-      products: handleClick.results,
+      products: searchByCategories.results,
     });
   }
-  // handleClickCategory = async ({ target: { value } }) => {
-  //   const { query } = this.state;
-  //   const categoryId = value;
-  //   const searchByCategories = await this.getProducts({ categoryId, query });
-  //   this.setState({
-  //     products: searchByCategories.results,
-  //   });
-  // }
 
   handleChangeInput = ({ target: { value } }) => {
     this.setState({
@@ -62,34 +56,10 @@ export default class Home extends Component {
 
   addCart = (product) => {
     const { cart } = this.state;
-    const {
-      id, title, thumbnail, price,
-    } = product;
-    if (!cart.length) {
-      const productCart = [{
-        id, title, thumbnail, price, count: 1,
-      }];
-      this.setState({
-        cart: productCart,
-      });
-    } else {
-      let productCart = cart;
-      const findProduct = productCart.find((item) => item.id === product.id);
-      if (findProduct) {
-        const key = productCart.indexOf(findProduct);
-        productCart[key].count += 1;
-        this.setState({
-          cart: productCart,
-        });
-      } else {
-        productCart = [...productCart, {
-          id, title, thumbnail, price, count: 1,
-        }];
-        this.setState({
-          cart: productCart,
-        });
-      }
-    }
+    const productCart = AddToCart(product, cart);
+    this.setState({
+      cart: productCart,
+    });
   }
 
   render() {
