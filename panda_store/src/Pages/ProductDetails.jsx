@@ -46,7 +46,7 @@ export default class ProductDetails extends Component {
             </div>
           ))}
         </div>
-        <div className="areaButtons">
+        <div className="areaButtonsDetails">
           <button
             type="button"
             className="buttonCart"

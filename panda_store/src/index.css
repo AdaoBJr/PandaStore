@@ -16,6 +16,13 @@ a {
   color: black;
 }
 
+.Cards {
+  background-image: url('./images/fundo.png');
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+
 .header {
   background-color: #c4c4c422;
   border-radius: 5px;
@@ -318,6 +325,77 @@ a {
 
 .details .price {
   font-size: 1.4rem
+}
+
+.areaButtonsDetails {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.areaButtonsDetails  .buttonCart {
+  padding: 5px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.areaButtonsDetails .buttonCart:before {
+  content: '';
+  position: absolute;
+  border-radius: 40px;
+  background-color: #269a80;
+  width: 0;
+  height: 101%;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  transition: all .5s ease;
+}
+
+.areaButtonsDetails .buttonCart:hover:before {
+  width: 101%;
+}
+
+.areaButtonsDetails .buttonCart:hover {
+  color:white;
+  transition: all 0.5s ease;
+}
+
+.areaButtonsDetails  .buttonHome {
+  padding: 5px 15px 5px 15px;
+  margin-left: 5px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.areaButtonsDetails .buttonHome:before {
+  content: '';
+  position: absolute;
+  border-radius: 40px;
+  background-color: #f4796b;
+  width: 0;
+  height: 101%;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  transition: all .5s ease;
+}
+
+.areaButtonsDetails .buttonHome:hover:before {
+  width: 101%;
+}
+
+.areaButtonsDetails .buttonHome a:hover {
+  color:white;
+  transition: all 0.5s ease;
 }
 
 .moreInformations {
