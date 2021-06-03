@@ -3,25 +3,101 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export default class Cart extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  constructor(props) {
+    super(props);
+    const { location: { state: { cart } } } = this.props;
+    this.state = {
+      shoppingCart: cart,
+      updateSum: true,
+      totalSum: 0,
+    };
+  }
+
+  componentDidMount() {
+    this.totalSumProducts();
+  }
+
+  componentDidUpdate() {
+    this.totalSumProducts();
+  }
+
+  totalSumProducts = () => {
+    const { shoppingCart, updateSum } = this.state;
+    if (updateSum) {
+      const valueSum = shoppingCart.reduce((acc, value) => acc + value.totalValue, 0);
+      this.setState({
+        totalSum: valueSum,
+        updateSum: false,
+      });
+    }
+  }
+
+  increaseQuantity = (id) => {
+    const { shoppingCart } = this.state;
+    const productCart = shoppingCart;
+    const findProduct = productCart.find((item) => item.id === id);
+    const key = productCart.indexOf(findProduct);
+    productCart[key].count += 1;
+    productCart[key].totalValue = Math.round((productCart[key].count
+      * productCart[key].price) * 100) / 100;
+    this.setState({
+      shoppingCart: productCart,
+      updateSum: true,
+    });
+  }
+
+  decreaseQuantity = (id) => {
+    const { shoppingCart } = this.state;
+    const productCart = shoppingCart;
+    const findProduct = productCart.find((item) => item.id === id);
+    const key = productCart.indexOf(findProduct);
+    if (productCart[key].count > 1) {
+      productCart[key].count -= 1;
+      productCart[key].totalValue = Math.round((productCart[key].count
+        * productCart[key].price) * 100) / 100;
+      this.setState({
+        shoppingCart: productCart,
+        updateSum: true,
+      });
+    }
+  }
+
+  removeItem = (id) => {
+    const { shoppingCart } = this.state;
+    const productCart = shoppingCart;
+    const updatedCart = productCart.filter((item) => item.id !== id);
+    this.setState({
+      shoppingCart: updatedCart,
+      updateSum: true,
+    });
+  }
+
+  clearProducts = () => {
+    const updatedCart = [];
+    this.setState({
+      shoppingCart: updatedCart,
+      updateSum: true,
+    });
   }
 
   render() {
-    const { location: { state: { cart } } } = this.props;
-    const haveCart = cart.length;
+    const { shoppingCart, totalSum } = this.state;
+    const haveCart = shoppingCart.length;
     if (!haveCart) {
       return (
         <div className="cartEmpty">
-          <h3>Carrinho de Compras</h3>
-          <h5>Seu carrinho está vazio.</h5>
+          <div>
+            <h3>Carrinho de Compras</h3>
+            <h5>Seu carrinho está vazio.</h5>
+          </div>
           <div className="areaButtons">
             <button
               type="button"
               className="buttonCheckout"
             >
-              <Link to="/">
+              <Link
+                to={{ pathname: '/checkout', state: { shoppingCart, totalSum } }}
+              >
                 Finalizar Compra
               </Link>
             </button>
@@ -40,20 +116,54 @@ export default class Cart extends Component {
     return (
       <div className="cartFull">
         <div className="itemsCart">
-          {cart.map(({
-            id, title, price, thumbnail, count,
+          {shoppingCart.map(({
+            id, title, price, thumbnail, availableQuantity, count, totalValue,
           }) => (
-            <div key={id} className="itemCart">
-              <h4 className="title">{title}</h4>
-              <img src={thumbnail} alt={title} width="80px" />
-              <h4>
-                {`Qtide: ${count
-                  .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
-              </h4>
-              <h4 className="price">
-                {`Preço: R$ ${price
-                  .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
-              </h4>
+            <div key={id}>
+              <div className="itemCart">
+                <h4 className="title">{title}</h4>
+                <img src={thumbnail} alt={title} />
+                <h4>
+                  {`Qtide: ${count
+                    .toLocaleString('pt-br', { minimumFractionDigits: 1 })}`}
+                </h4>
+                <h4 className="price">
+                  {`Preço: R$ ${price
+                    .toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}
+                </h4>
+                <h3 className="totalValue">
+                  Total R$:
+                  {
+                    totalValue
+                      .toLocaleString('pt-br', { minimumFractionDigits: 2 })
+                  }
+                </h3>
+
+                <div className="itemButtons">
+                  <button
+                    className="increase"
+                    type="button"
+                    disabled={count >= availableQuantity}
+                    onClick={() => this.increaseQuantity(id)}
+                  >
+                    +
+                  </button>
+                  <button
+                    className="decrease"
+                    type="button"
+                    onClick={() => this.decreaseQuantity(id)}
+                  >
+                    -
+                  </button>
+                  <button
+                    className="remove"
+                    type="button"
+                    onClick={() => this.removeItem(id)}
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
             </div>
           ))}
         </div>
@@ -62,9 +172,18 @@ export default class Cart extends Component {
             type="button"
             className="buttonCheckout"
           >
-            <Link to="/">
+            <Link
+              to={{ pathname: '/checkout', state: { shoppingCart, totalSum } }}
+            >
               Finalizar Compra
             </Link>
+          </button>
+          <button
+            type="button"
+            className="buttonClear"
+            onClick={this.clearProducts}
+          >
+            Limpar Produtos
           </button>
           <button
             type="button"
@@ -83,13 +202,7 @@ export default class Cart extends Component {
 Cart.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.shape({
-      cart: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
-        count: PropTypes.number.isRequired,
-        map: PropTypes.func.isRequired,
-        length: PropTypes.func.isRequired,
-      }).isRequired,
+      cart: PropTypes.arrayOf(PropTypes.object).isRequired,
     }).isRequired,
   }).isRequired,
 };

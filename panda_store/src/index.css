@@ -81,13 +81,13 @@ a {
   transition: all 0.5s ease;
 }
 
-.inputButtons .cartSearch {
+.cartSearch {
   height: 45px;
   margin-left: 5px;
   border:none;
 }
 
-.inputButtons .cartSearch {
+.cartSearch {
   width: 55px;
   height: 60px;
   background-color: #c4c4c431;
@@ -96,19 +96,19 @@ a {
   outline: none;
 }
 
-.inputButtons .cartSearch:hover {
+.cartSearch:hover {
   width: 75px;
   height: 65px;
   transition: all 1.0s ease;
 }
 
-.inputButtons .imgCart {
+.imgCart {
   width: 45px;
   cursor: pointer;
   outline: none;
 }
 
-.inputButtons .imgCart:hover {
+.imgCart:hover {
   width: 65px;
   border-radius: 40px;
   transition: all 1.0s ease;
@@ -334,7 +334,7 @@ a {
 
 .areaButtons {
   display: flex;
-  justify-content: flex-start;
+  align-items: center;
   background-color: #C4C4C422;
   margin-top: 10px;
 }
@@ -448,8 +448,9 @@ a {
   box-shadow: 1px 1px 5px 2px black;
 }
 
-.cartEmpty .areaButtons {
-  margin-top: 30%;
+.cartEmpty {
+  display: flex;
+  justify-content: space-between;
 }
 
 .cartFull {
@@ -468,7 +469,143 @@ a {
   margin-top: 5%;
 }
 
+.cartFull .areaButtons  .buttonClear {
+  padding: 5px 15px 5px 15px;
+  margin-left: 5px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
+.cartFull .areaButtons  .buttonClear:before {
+  content: '';
+  position: absolute;
+  border-radius: 40px;
+  background-color: #b13c2f;
+  width: 0;
+  height: 101%;
+  top: 0;
+  left: 0;
+  z-index:-1;
+  transition: all .5s ease;
+}
+
+.cartFull .areaButtons  .buttonClear:hover:before {
+  width: 101%;
+}
+
+.cartFull .areaButtons  .buttonClear:hover {
+  color:white;
+  transition: all 0.5s ease;
+}
+
 .itemCart {
+  align-items: center;
+  border: 2px solid rgba(68, 48, 101, 0.742);
+  border-radius: 15px;
+  box-shadow: 2px 2px 15px rgba(157, 112, 230, 0.543);
+  color: black;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  height: 300px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-left: 10px;
+  width: 180px
+}
+
+.itemCart .title {
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: auto;
+} 
+
+.itemCart img {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 90px;
+  border-radius: 40px;
+}
+
+.itemCart .price {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.itemCart .totalValue {
+  margin-top: 3px;
+  color:rgba(68, 48, 101, 0.961);
+}
+
+.itemButtons {
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+.itemCart .increase {
+  font-size: 1.0rem;
+  margin: 3px 3px;
+  padding: 3px 15px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+}
+
+.itemCart .increase:hover {
+  background-color: #269a80;
+  color:white;
+  transition: all 0.5s ease;
+}
+
+.itemCart .decrease {
+  font-size: 1.0rem;
+  margin: 3px 3px;
+  padding: 3px 15px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+}
+
+.itemCart .decrease:hover {
+  background-color: #f4796b;
+  color:white;
+  transition: all 0.5s ease;
+}
+
+.itemCart .remove {
+  font-size: 1.0rem;
+  margin: 3px 3px;
+  padding: 3px 15px;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 1px 1px 4px 1px gray;
+  cursor: pointer;
+}
+
+.itemCart .remove:hover {
+  background-color: #b13c2f;
+  color:white;
+  transition: all 0.5s ease;
+}
+
+.checkoutFull {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #C4C4C422;
+  margin: 10px 20px 2px 20px;
+  padding: 10px 10px;
+  box-shadow: 1px 1px 5px 2px black;
+}
+
+.itemCheckout {
   align-items: center;
   border: 2px solid rgba(68, 48, 101, 0.742);
   border-radius: 15px;
@@ -485,20 +622,28 @@ a {
   width: 180px
 }
 
-.itemCart .title {
-  margin-top: 15px;
-  margin-left: 20px;
-  margin-right: auto;
+.itemCheckout .title {
+  margin-top: 10px;
+  margin-bottom: 10px;
 } 
 
-.itemCart img {
-  margin-top: auto;
-  margin-bottom: auto;
-  width: 80px;
+.itemCheckout img {
+  margin-top: 10px;
+  width: 90px;
   border-radius: 40px;
 }
 
-.itemCart .price {
-  margin-left: auto;
-  margin-right: auto;
+.itemCheckout .price {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.checkoutFull .totalValue {
+  margin-top: 35px;
+  color:rgba(68, 48, 101, 0.961);
+  text-align: center;
+  width: 70%;
+  padding: 5px;
+  border-radius: 40px;
+  box-shadow: 1px 1px 5px 1px #34475F;
 }

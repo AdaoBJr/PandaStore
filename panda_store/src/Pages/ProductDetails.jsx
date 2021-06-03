@@ -1,11 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import * as func from '../service/globalFunctions';
+import imgCart from '../images/cart.png';
 
 export default class ProductDetails extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      cart: [],
+    };
+  }
+
+  addCart = (product) => {
+    const { cart } = this.state;
+    const productCart = func.addCartRefact(product, cart);
+    this.setState({
+      cart: productCart,
+    });
   }
 
   render() {
@@ -13,6 +25,7 @@ export default class ProductDetails extends Component {
     const {
       title, thumbnail, price, attributes,
     } = product;
+    const { cart } = this.state;
     return (
       <div className="ProductDetails">
         <div className="details">
@@ -36,6 +49,7 @@ export default class ProductDetails extends Component {
           <button
             type="button"
             className="buttonCart"
+            onClick={() => this.addCart(product)}
           >
             Adicionar
           </button>
@@ -47,6 +61,22 @@ export default class ProductDetails extends Component {
               Home
             </Link>
           </button>
+          <div className="qtdAndCart">
+            <button
+              className="cartSearch"
+              type="button"
+            >
+              <Link
+                to={{
+                  pathname: '/cart',
+                  state: { cart },
+                }}
+              >
+                <img src={imgCart} alt="carrinho de compras" className="imgCart" />
+              </Link>
+            </button>
+            <p className={(cart.length === 0) ? 'qtdCart' : ''}>{cart.length}</p>
+          </div>
         </div>
       </div>
     );
