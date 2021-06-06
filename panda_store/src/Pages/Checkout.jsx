@@ -80,6 +80,25 @@ export default class Checkout extends Component {
               Comprar
             </Link>
           </button>
+          <button
+            type="button"
+            className="buttonCancel"
+          >
+            <Link
+              to="/"
+              onClick={this.buyCompleted}
+            >
+              Cancelar Compra
+            </Link>
+          </button>
+          <button
+            type="button"
+            className="buttonHome"
+          >
+            <Link to="/">
+              Home
+            </Link>
+          </button>
         </div>
       </div>
     );

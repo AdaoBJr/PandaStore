@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ElementsHome from '../Components/ElementsHome';
+import Categories from '../Components/Categories';
+import ProductsList from '../Components/ProductsList';
 import * as api from '../service/api';
 import * as func from '../service/globalFunctions';
 
@@ -7,10 +9,11 @@ export default class Home extends Component {
   constructor() {
     super();
     this.state = {
+      cart: [],
       listCategories: [],
       products: [],
       query: '',
-      cart: [],
+      fetchOn: false,
     };
   }
 
@@ -47,6 +50,7 @@ export default class Home extends Component {
     const searchByCategories = await this.getProducts({ categoryId, query });
     this.setState({
       products: searchByCategories.results,
+      fetchOn: true,
     });
   }
 
@@ -62,6 +66,7 @@ export default class Home extends Component {
     const searchByCategories = await this.getProducts({ categoryId, query });
     this.setState({
       products: searchByCategories.results,
+      fetchOn: true,
     });
   }
 
@@ -75,9 +80,40 @@ export default class Home extends Component {
   }
 
   render() {
-    const { listCategories, products, cart } = this.state;
+    const {
+      listCategories,
+      products,
+      cart,
+      fetchOn,
+    } = this.state;
+
+    if (fetchOn) {
+      return (
+        <div>
+          <ElementsHome
+            products={products}
+            categories={listCategories}
+            cart={cart}
+            handleChange={this.handleChangeInput}
+            handleClickInput={this.handleClickInput}
+            handleClickCategory={this.handleClickCategory}
+            handleAddCart={this.addCart}
+          />
+          <div className="Cards">
+            <Categories
+              categories={listCategories}
+              handleClickCategory={this.handleClickCategory}
+            />
+            <ProductsList
+              products={products}
+              handleAddCart={this.addCart}
+            />
+          </div>
+        </div>
+      );
+    }
     return (
-      <div>
+      <div className="pandaBG">
         <ElementsHome
           products={products}
           categories={listCategories}
@@ -86,6 +122,10 @@ export default class Home extends Component {
           handleClickInput={this.handleClickInput}
           handleClickCategory={this.handleClickCategory}
           handleAddCart={this.addCart}
+        />
+        <Categories
+          categories={listCategories}
+          handleClickCategory={this.handleClickCategory}
         />
       </div>
     );

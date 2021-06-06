@@ -108,16 +108,6 @@ export default class Cart extends Component {
           <div className="areaButtons">
             <button
               type="button"
-              className="buttonCheckout"
-            >
-              <Link
-                to={{ pathname: '/checkout', state: { shoppingCart, totalSum } }}
-              >
-                Finalizar Compra
-              </Link>
-            </button>
-            <button
-              type="button"
               className="buttonHome"
             >
               <Link to="/">
