@@ -13,7 +13,7 @@
 
 Uma versão simplificada, sem persistência no banco de dados, de uma **loja online**. 
 Desenvolvido em dupla de acordo com demandas definidas em um quadro Kanban. 
-A partir dessas demandas, teremos uma aplicação onde os usuários poderão:
+A partir dessas demandas, temos uma aplicação onde os usuários poderão:
   - Buscar produtos por termos e categorias a partir da _API do Mercado Livre_;
   - Interagir com os produtos buscados de modo a adicioná-los e removê-los de um carrinho de compras em diferentes quantidades;
   - Visualizar detalhes e avaliações prévias de um produto, bem como criar novas avaliações;
