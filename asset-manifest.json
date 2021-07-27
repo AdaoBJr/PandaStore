@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/pandaStore/static/css/main.a3b88d1d.chunk.css",
-    "main.js": "/pandaStore/static/js/main.cab8c475.chunk.js",
-    "main.js.map": "/pandaStore/static/js/main.cab8c475.chunk.js.map",
-    "runtime-main.js": "/pandaStore/static/js/runtime-main.8a45852d.js",
-    "runtime-main.js.map": "/pandaStore/static/js/runtime-main.8a45852d.js.map",
-    "static/js/2.366d414b.chunk.js": "/pandaStore/static/js/2.366d414b.chunk.js",
-    "static/js/2.366d414b.chunk.js.map": "/pandaStore/static/js/2.366d414b.chunk.js.map",
-    "index.html": "/pandaStore/index.html",
-    "static/css/main.a3b88d1d.chunk.css.map": "/pandaStore/static/css/main.a3b88d1d.chunk.css.map",
-    "static/js/2.366d414b.chunk.js.LICENSE.txt": "/pandaStore/static/js/2.366d414b.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/pandaStore/static/media/fundo.dcb4b664.png",
-    "static/media/cart.80f1b71e.png": "/pandaStore/static/media/cart.80f1b71e.png",
-    "static/media/lupa.d7a62503.png": "/pandaStore/static/media/lupa.d7a62503.png",
-    "static/media/pandaHeader.0d3a3eaf.png": "/pandaStore/static/media/pandaHeader.0d3a3eaf.png"
+    "main.css": "/PandaStore/static/css/main.ea7d6e29.chunk.css",
+    "main.js": "/PandaStore/static/js/main.5aafafc2.chunk.js",
+    "main.js.map": "/PandaStore/static/js/main.5aafafc2.chunk.js.map",
+    "runtime-main.js": "/PandaStore/static/js/runtime-main.ee51fa3e.js",
+    "runtime-main.js.map": "/PandaStore/static/js/runtime-main.ee51fa3e.js.map",
+    "static/js/2.366d414b.chunk.js": "/PandaStore/static/js/2.366d414b.chunk.js",
+    "static/js/2.366d414b.chunk.js.map": "/PandaStore/static/js/2.366d414b.chunk.js.map",
+    "index.html": "/PandaStore/index.html",
+    "static/css/main.ea7d6e29.chunk.css.map": "/PandaStore/static/css/main.ea7d6e29.chunk.css.map",
+    "static/js/2.366d414b.chunk.js.LICENSE.txt": "/PandaStore/static/js/2.366d414b.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/PandaStore/static/media/fundo.dcb4b664.png",
+    "static/media/cart.80f1b71e.png": "/PandaStore/static/media/cart.80f1b71e.png",
+    "static/media/lupa.d7a62503.png": "/PandaStore/static/media/lupa.d7a62503.png",
+    "static/media/pandaHeader.0d3a3eaf.png": "/PandaStore/static/media/pandaHeader.0d3a3eaf.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.8a45852d.js",
+    "static/js/runtime-main.ee51fa3e.js",
     "static/js/2.366d414b.chunk.js",
-    "static/css/main.a3b88d1d.chunk.css",
-    "static/js/main.cab8c475.chunk.js"
+    "static/css/main.ea7d6e29.chunk.css",
+    "static/js/main.5aafafc2.chunk.js"
   ]
 }
