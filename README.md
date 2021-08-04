@@ -1,6 +1,15 @@
 <p align="center"><img width='150px' src='https://github.com/PollyanaOliveira/panda-store-project/blob/main/panda_store/src/images/pandaHeader.png?raw=true' />
 <h1 align="center"> Panda Store Project  </h1>  </p>
 
+<h2 align="center">GitHub Pages:</h2>
+ 
+ <div align="center">
+   <a href="https://adaobjr.github.io/TrybeWallet/" target="_blank">
+    <img width='100px' src='https://image.flaticon.com/icons/png/512/5222/5222347.png' target="_blank" />
+ </div>
+ 
+<h5 align="center">Clique na imagem</h5>
+
 ## 🧑🏻‍💻👩🏾‍💻Desenvolvido por
 
 @[AdaoBJr](https://github.com/AdaoBJr)
